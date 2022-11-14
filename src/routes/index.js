@@ -1,25 +1,18 @@
 const { Router } = require('express');
 const router = Router();
-const stadiumController = require('../controllers/stadiumController');
+const albumController = require('../controllers/albumController');
 
-//routes
-router.get('/api/test', (req, res) => {
-    const data = {
-        "id": "1",
-        "name": "API is working"
-    }
-    res.json(data);
-});
 
-router.get('/api/list', stadiumController.list);
 
-router.get('/api/list/:id', stadiumController.show);
+router.get('/api/list', albumController.list);
 
-router.post('/api/list', stadiumController.add);
+router.get('/api/list/:id', albumController.show);
 
-router.put('/api/list/:id', stadiumController.update);
+router.post('/api/list', albumController.add);
 
-router.delete('/api/list/:id', stadiumController.delete);
+router.put('/api/list/:id', albumController.update);
+
+router.delete('/api/list/:id', albumController.delete);
 
 
 module.exports = router;

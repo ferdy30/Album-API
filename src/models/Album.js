@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const stadiumSchema = new Schema({
+const albumSchema = new Schema({
     date:{
         type: Date,
         default: Date.now,
@@ -24,4 +24,4 @@ const stadiumSchema = new Schema({
     },
 });
 
-module.exports = mongoose.model('Stadiums',stadiumSchema);
+module.exports = mongoose.model('Album',albumSchema);

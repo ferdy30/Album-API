@@ -1,10 +1,10 @@
-const Stadium = require('../models/stadiums');
+const Album = require('../models/Album');
 
 //list all items
 exports.list = async(req, res) =>{
     try{
-    const stadiums = await Stadium.find({});
-    res.json(stadiums);
+    const albums = await Album.find({});
+    res.json(albums);
     }catch(error){
         console.log(error);
         res.send(error);
@@ -14,11 +14,11 @@ exports.list = async(req, res) =>{
 
 exports.show = async(req, res, next) =>{
     try{
-        const stadium = await Stadium.findOne({id: req.params.id});
-        if(!stadium){
+        const album = await Album.findOne({id: req.params.id});
+        if(!album){
             res.status(404).json({message: "Item not finded"});
         }
-        res.json(stadium);
+        res.json(Album);
 
     }catch(error){
         console.log(error);
@@ -28,10 +28,10 @@ exports.show = async(req, res, next) =>{
 };
 
 exports.add = async(req, res) =>{
-    const stadium = new Stadium(req.body);
+    const album = new Album(req.body);
 
     try{
-        await stadium.save();
+        await album.save();
         res.json({message: "Added new Album"});
         }catch(error){
             console.log(error);
@@ -42,10 +42,10 @@ exports.add = async(req, res) =>{
 
 exports.update = async (req, res, next) =>{
     try{
-        const stadium = await Stadium.findOneAndUpdate(
+        const album = await Album.findOneAndUpdate(
             {id: req.params.id},req.body
         );
-        res.json({message: "Updated stadium"});
+        res.json({message: "Updated Album"});
 
     }catch(error){
         console.log(error);
@@ -57,8 +57,8 @@ exports.update = async (req, res, next) =>{
 
 exports.delete = async (req, res, next) =>{
     try{
-        const stadium = await Stadium.findOneAndDelete({id: req.params.id});
-        res.json({message: "Deleted stadium"});
+        const album = await album.findOneAndDelete({id: req.params.id});
+        res.json({message: "Deleted album"});
 
     }catch(error){
         console.log(error);
