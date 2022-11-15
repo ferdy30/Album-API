@@ -4,7 +4,7 @@ const albumController = require('../controllers/albumController');
 
 
 
-router.get ('', albumController.list);
+router.get ('/api/list', albumController.list);
 
 router.get('/api/list/:id', albumController.show);
 
